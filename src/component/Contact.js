@@ -4,27 +4,41 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    number: "",
-    subject: "",
-    destination: "",
-    date: "",
-    message: ""
-  });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [number, setNumber] = useState("");
+  const [subject, setSubject] = useState("");
+  const [destination, setDestination] = useState("");
+  const [date, setDate] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    try {
+      const response = await fetch("http://localhost:5000/contact/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, number, subject, destination, date, message }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        alert("Email sent successfully!");
+        setName("");
+        setEmail("");
+        setNumber("");
+        setSubject("");
+        setDestination("");
+        setDate("");
+        setMessage("");
+      } else {
+        alert(data.error);
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      alert("An error occurred while sending the email.");
+    }
   };
 
   return (
@@ -32,79 +46,66 @@ const Contact = () => {
       <Header />
       <section className="contact" id="contact">
         <h1 className="heading">
-          <span>Contact</span> Us
+          <span>Contact</span> US
         </h1>
         <form onSubmit={handleSubmit}>
           <div className="inputBox">
             <input
               type="text"
-              name="name"
               placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               required
-              aria-label="Your Name"
             />
             <input
               type="email"
-              name="email"
               placeholder="Your Email"
-              value={formData.email}
-              onChange={handleChange}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
-              aria-label="Your Email"
             />
           </div>
           <div className="inputBox">
             <input
-              type="tel"
-              name="number"
+              type="number"
               placeholder="Your Number"
-              value={formData.number}
-              onChange={handleChange}
+              value={number}
+              onChange={(e) => setNumber(e.target.value)}
               required
-              aria-label="Your Number"
             />
             <input
               type="text"
-              name="subject"
               placeholder="Subject"
-              value={formData.subject}
-              onChange={handleChange}
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
               required
-              aria-label="Subject"
             />
           </div>
           <div className="inputBox">
             <input
               type="text"
-              name="destination"
               placeholder="Destination"
-              value={formData.destination}
-              onChange={handleChange}
+              value={destination}
+              onChange={(e) => setDestination(e.target.value)}
               required
-              aria-label="Destination"
             />
             <input
               type="date"
-              name="date"
               placeholder="Select Date"
-              value={formData.date}
-              onChange={handleChange}
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
               required
-              aria-label="Select Date"
             />
           </div>
           <textarea
-            name="message"
             placeholder="Your Message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            aria-label="Your Message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            cols="30"
             rows="10"
+            required
           ></textarea>
-          <button type="submit" className="btn">Submit</button>
+          <input type="submit" value="Submit" className="btn" />
         </form>
       </section>
       <Footer />

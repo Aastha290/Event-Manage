@@ -48,36 +48,27 @@
   text-transform: none;
 }
 
-.contact form .inputBox input {
-  width: calc(50% rem); 
-}
-
 .contact form textarea {
   resize: vertical;
   min-height: 10rem;
   width: calc(50% rem);
 }
 
-.contact form button {
-  display: inline-block;
-  background: rgba(51, 51, 51);
-  color: #fff;
-  padding: 1rem 2.5rem;
-  font-size: 1.2rem;
+.btn {
+  background-color: #383535;
   border: none;
-  border-radius: .5rem;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
   cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
+  border-radius: 5px;
+  width: 50%;
 }
 
-.contact form button:hover {
-  background: #0056b3;
-  transform: translateY(-2px); 
-}
-
-
-@media (max-width: 768px) {
-  .contact form .inputBox input {
-      width: 100%;
-  }
+.btn:hover {
+  background-color: #000;
 }

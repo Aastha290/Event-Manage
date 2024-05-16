@@ -8,6 +8,7 @@ import "../styles/Login.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [isLogin, setIsLogin] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
   const [username, setUsername] = useState("");
@@ -145,11 +146,20 @@ const signInWithGoogle = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          {!isLogin && (
-            <div className="password-requirements">
-            </div>
-          )}
         </div>
+        {!isLogin && (
+            <div className="form-group">
+            <label htmlFor="confirmPassword">Confirm Password:</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+             </div>
+          )}
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <button type="submit" className="btn-submit">
           {isLogin ? "Sign In" : "Sign Up"}
