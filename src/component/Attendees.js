@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import "../styles/AttendeesStyle.css"; // Import CSS file for styling
+import "../styles/AttendeesStyle.css";
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -8,8 +8,8 @@ const Attendees = () => {
   const { eventId } = useParams();
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [sendingEmails, setSendingEmails] = useState({}); // State for tracking sending emails
-  const [emailError, setEmailError] = useState(""); // State for email sending error
+  const [sendingEmails, setSendingEmails] = useState({});
+  const [emailError, setEmailError] = useState("");
 
   useEffect(() => {
     const fetchBookings = async () => {
@@ -39,7 +39,7 @@ const Attendees = () => {
   }, [eventId]);
 
   const sendEmail = async (email) => {
-    setSendingEmails({ ...sendingEmails, [email]: true }); // Set sending email status for the specific email
+    setSendingEmails({ ...sendingEmails, [email]: true });
     try {
       const token = localStorage.getItem("token");
       const response = await fetch("http://localhost:5000/api/send-email", {
@@ -62,9 +62,9 @@ const Attendees = () => {
       console.log("Email sent successfully:", data);
     } catch (error) {
       console.error("Error sending email:", error);
-      setEmailError("Failed to send email."); // Set email error message
+      setEmailError("Failed to send email.");
     } finally {
-      setSendingEmails({ ...sendingEmails, [email]: false }); // Reset sending email status for the specific email
+      setSendingEmails({ ...sendingEmails, [email]: false });
     }
   };
 
@@ -85,7 +85,7 @@ const Attendees = () => {
                 <button
                   className="send-email-button"
                   onClick={() => sendEmail(booking.userId.email)}
-                  disabled={sendingEmails[booking.userId.email]} // Disable button if email is being sent
+                  disabled={sendingEmails[booking.userId.email]} 
                 >
                   {sendingEmails[booking.userId.email] ? "Sending..." : "Send Email"}
                 </button>
