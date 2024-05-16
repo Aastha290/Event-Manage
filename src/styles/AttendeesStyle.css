@@ -1,0 +1,19 @@
+.attendees-container {
+  margin: 20px;
+}
+
+.attendees-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.attendees-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.attendees-item p {
+  margin: 5px 0;
+}

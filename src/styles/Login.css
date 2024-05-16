@@ -1,0 +1,126 @@
+.logo {
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #000;
+}
+
+.logo span {
+  color: #9a54ef;
+}
+
+
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.btn-google {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: #db4437;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-google:hover {
+  background-color: #c1352c;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.password-requirements {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.error-message {
+  color: #ff0000;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.btn-submit {
+  width: 100%;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: #0056b3;
+}
+
+.toggle-form {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.toggle-form button {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 1rem;
+}
+
+.toggle-form button:hover {
+  color: #0056b3;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  margin-left: 130px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #007bff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.google-btn img {
+  margin-right: 10px;
+  width: 30px;
+  height: 20px;
+}
+
+.google-btn:hover {
+  background-color: #0056b3;
+}
+
